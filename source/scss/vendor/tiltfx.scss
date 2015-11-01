@@ -1,0 +1,45 @@
+/**
+ * tiltfx.js
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Copyright 2015, Codrops
+ * http://www.codrops.com
+ */
+
+ // I have made some changes to this, to make it more fluid and not show any edges
+ // Original: http://tympanus.net/codrops/2015/05/28/image-tilt-effect/
+
+ $width: 105%;
+ $height: $width;
+.tilt {
+    overflow: hidden;
+    min-width: $width;
+    height: $height;
+    margin: 0 auto;
+    @include align(both);
+}
+
+.tilt__back,
+.tilt__front {
+    backface-visibility: hidden;
+    height: $height;
+    min-width: $width;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.tilt__back {
+    position: relative;
+}
+
+.tilt__front {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

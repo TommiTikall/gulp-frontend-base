@@ -1,0 +1,164 @@
+// No grid padding
+// Used on grid-container when padding is not needed, to utilize the 1005 width of the viewport
+%grid-padding-none {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// Grid-container normal padding behaviour
+%grid-padding-normal {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+%grid-padding-big {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+// Layout specific placeholders
+%no-scroll {
+    overflow: hidden;
+}
+
+%persistent-scroll {
+    overflow-y: scroll!important;
+    -webkit-overflow-scrolling: touch;
+}
+
+// Ordinary text
+%text {
+    font-size: 18px;
+    font-family: $text-font-stack;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+// GPU speed up for performance
+%gpu {
+    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000;
+}
+
+%text-optimize {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 0 0;
+}
+
+// Block header
+%block-header {
+    color: $header-color;
+    font-size: $large-header;
+    font-family: $brand-font;
+    line-height: $header-line-height;
+    margin-bottom: 40px;
+    text-align: left;
+
+    @include respond-to('medium') {
+        text-align: center;
+    }
+}
+
+%brand-header {
+    font-family: $brand-font;
+    font-weight: 700;
+}
+
+// Fixed, full width/height video
+%fixed-video {
+    height: 101%;
+    position: absolute;
+        z-index: 0;
+    width: auto;
+    @include align(both);
+
+    @include respond-to('medium') {
+        height: auto;
+        min-height: 101%;
+        min-width: 101%;
+    }
+
+    @include respond-to('large') {
+        position: fixed;
+    }
+}
+
+// Fixed, full width/height image
+%fixed-image {
+    @include align(both);
+    position: fixed;
+
+    .orientation-square &,
+    .orientation-portrait & {
+        height: 100%;
+        width: auto;
+    }
+
+    .orientation-landscape & {
+        min-height: 100%;
+        min-width: 100%;
+        width: auto;
+    }
+
+    // Fallback
+    .no-js & {
+        min-height: 100%;
+        min-width: 100%;
+    }
+}
+
+%fullscreen-image {
+    @include align(both);
+    min-height: 100%;
+    width: auto;
+
+    @include respond-to('x-large') {
+        height: auto;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    @include respond-to('mega') {
+        min-height: 100%;
+        height: auto;
+        min-width: 100%;
+    }
+}
+
+// Navigation icon bars
+%bar {
+    background: #fff;
+    width: 29px;
+    height: 3px;
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    transform-origin: 0 50% 0;
+    transition: all $ani-fast $elastic1;
+}
+
+%minimal-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// Icon font placeholder
+%icon-font {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,112 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+// button, [type="button"], .button {
+//     border: none;
+//     cursor: pointer;
+//     display: inline-block;
+//     padding: 10px 25px;
+//     text-transform: uppercase;
+//
+//     @include respond-to('medium') {
+//         padding: 10px 55px;
+//     }
+//
+//     &:focus,
+//     &:active {
+//         outline: none;
+//     }
+// }
+
+@mixin button-style ($bg-color: false, $border-color: false, $text-color: false) {
+    @extend %gpu;
+    background-color: $bg-color;
+    border-color: $border-color;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 0.5vh;
+    color: $text-color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $text-font-stack;
+    font-size: 2vh;
+    font-weight: 700;
+    margin: 0 1vw;
+    padding: 1.5vh 6vh;
+    position: relative;
+    transition: transform $ani-fast;
+    user-select: none;
+
+    @include on-event () {
+        color: $text-color;
+        text-decoration: none;
+    }
+
+    &:hover {
+        // transform: scale(0.97);
+        transform: scale(1.03);
+    }
+
+    &.small {
+        padding: 1vh 5vh;
+    }
+
+    @include respond-to('medium') {
+        // padding-left: 3vmin;
+        // padding-right: 3vmin;
+    }
+
+}
+
+// Variants
+.button {
+    @include button-style(#fff, #fff, $text-color);
+
+    &--inverted {
+        @include button-style($text-color, $text-color, $text-color-diff);
+    }
+
+    &--ghost {
+        @include button-style(transparent, $text-color-diff, $text-color-diff);
+    }
+}
+
+.intro-button {
+    display: inline-block;
+}
+
+// .call-to-action {
+//     @extend %gpu;
+//     border: solid 0.5vh #fff;
+//     border-radius: 2px;
+//     color: #fff;
+//     font-family: $text-font-stack;
+//     font-size: 2vh;
+//     font-weight: bold;
+//     margin: 0 1vw;
+//     padding: 1.5vh 6vh;
+//     position: relative;
+//     transition: transform $ani-fast;
+//
+//     @include on-event () {
+//         color: #fff;
+//         text-decoration: none;
+//     }
+//
+//     &:hover {
+//         // transform: scale(0.97);
+//         transform: scale(1.03);
+//     }
+//
+//     &--solid {
+//         @extend .call-to-action;
+//         background: #fff;
+//         color: #444;
+//
+//         @include on-event () {
+//             color: #444;
+//             text-decoration: none;
+//         }
+//     }
+// }

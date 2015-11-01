@@ -1,0 +1,196 @@
+// Custom animations
+
+$distance1: 10px;
+$distance2: 20px;
+$distance3: 30px;
+
+
+// Fade In UP
+.fadeInUpSmall {
+    @extend %gpu;
+    animation: fadeInUpSmall;
+}
+@keyframes fadeInUpSmall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, $distance1, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Fade In DOWN
+.fadeInDownSmall {
+    @extend %gpu;
+    animation: fadeInDownSmall;
+}
+@keyframes fadeInDownSmall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -$distance1, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Fade In from RIGHT
+.fadeInRightSmall {
+    @extend %gpu;
+    animation: fadeInRightSmall;
+}
+@keyframes fadeInRightSmall {
+  0% {
+    opacity: 0;
+    transform: translate3d($distance1, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Fade In from LEFT
+.fadeInLeftSmall {
+    @extend %gpu;
+    animation: fadeInLeftSmall;
+}
+@keyframes fadeInLeftSmall {
+  0% {
+    opacity: 0;
+    transform: translate3d(-$distance1, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+// Fade Out UP
+@keyframes fadeOutUpSmall {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -$distance1, 0);
+  }
+}
+
+
+// Scale animations
+@keyframes scaleDown {
+  0% {
+    transform: none;
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+//
+// OVERLAY
+//
+
+.overlayFadeIn {
+    @extend %gpu;
+    @include animation-props($ani-medium, 0);
+    animation-name: overlayFadeIn;
+}
+@keyframes overlayFadeIn {
+    0% {
+        opacity: 0;
+        z-index: 90;
+    }
+
+    100% {
+        opacity: 1;
+        z-index: 90;
+    }
+}
+
+.overlayFadeOut {
+    @extend %gpu;
+    @include animation-props($ani-medium, 0);
+    animation-name: overlayFadeOut;
+}
+@keyframes overlayFadeOut {
+    0% {
+        opacity: 1;
+        z-index: 90;
+    }
+
+    99% {
+        z-index: 90;
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+
+
+//
+// DOM animations
+//
+
+// Intro block animation
+.intro-animation {
+    @extend .fadeIn;
+    $intro-speed: 3.5s;
+
+    &.first {
+        @include animation-props($intro-speed, 0.5s);
+    }
+    &.second {
+        @include animation-props($intro-speed, 1.5s);
+    }
+    &.third {
+        @include animation-props($intro-speed, 2.5s);
+    }
+    &.fourth {
+        @include animation-props($intro-speed, 3.5s);
+    }
+    &.fifth {
+        @include animation-props($intro-speed/2, 5s);
+    }
+    &.sixth {
+        @include animation-props($intro-speed/2, 5s);
+    }
+}
+
+// Logo animation
+// .page-logo {
+//     @include animation-props(0.7s, 0.4s);
+//     @extend .fadeInUpSmall;
+// }
+
+// Primary navigation
+// .nav-main {
+//     @include animation-props(0.7s, 0.4s);
+//     @extend .fadeInUpSmall;
+// }
+
+
+//
+// Profile animaions
+//
+// .profile-overlay {
+//     &.active {
+//         opacity: 0;
+//         display: block;
+//         @include animation-props($ani-fast, 0.6s);
+//         animation-name: fadeIn;
+//     }
+// }

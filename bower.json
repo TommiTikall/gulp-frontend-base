@@ -1,0 +1,31 @@
+{
+  "name": "tomas-frontend-baseline",
+  "version": "0.0.1",
+  "authors": [
+    "Tomas Thorvardarson <tomasthorvardarson@gmail.com>"
+  ],
+  "description": "Frontend baseline with gulp and blocks",
+  "main": "index.html",
+  "keywords": [
+    "Frontend",
+    "Baseline",
+    "Gulp",
+    "SCSS",
+    "jeet.gs",
+    "Blocks",
+    "Templating"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "html5shiv": "~3.7.2",
+    "breakpoint-sass": "~2.6.1",
+    "jquery": "~2.1.4"
+  }
+}

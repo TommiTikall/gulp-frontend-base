@@ -1,0 +1,68 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?g3r0c7');
+	src:url('fonts/icomoon.eot?g3r0c7#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?g3r0c7') format('truetype'),
+		url('fonts/icomoon.woff?g3r0c7') format('woff'),
+		url('fonts/icomoon.svg?g3r0c7#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chevron-thin-down:before {
+	content: "\e900";
+}
+.icon-chevron-thin-left:before {
+	content: "\e901";
+}
+.icon-chevron-thin-right:before {
+	content: "\e902";
+}
+.icon-chevron-thin-up:before {
+	content: "\e903";
+}
+.icon-cross:before {
+	content: "\e904";
+}
+.icon-email:before {
+	content: "\e905";
+}
+.icon-mail:before {
+	content: "\e906";
+}
+.icon-mobile:before {
+	content: "\e907";
+}
+.icon-old-phone:before {
+	content: "\e908";
+}
+.icon-sweden:before {
+	content: "\e909";
+}
+.icon-facebook:before {
+	content: "\e90a";
+}
+.icon-pinterest:before {
+	content: "\e90b";
+}
+.icon-twitter:before {
+	content: "\e90c";
+}
+.icon-cross2:before {
+	content: "\e90d";
+}
+

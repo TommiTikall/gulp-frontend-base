@@ -1,0 +1,187 @@
+//
+// MEDIA BLOCK
+// - Two column (implicit)
+// - Normal (image left/text right)
+// - Flipped (text left/image left)
+//
+
+// Media block variables
+$content-width: 40%;
+$content-padding: 5%;
+
+// Content variables
+$content-width-small: 80%;
+$content-width-medium: 70%;
+$content-width-large: 60%;
+$content-width-xlarge: 50%;
+
+$content-padding-small: 100% - $content-width-small;
+$content-padding-medium: 100% - $content-width-medium;
+$content-padding-large: 100% - $content-width-large;
+$content-padding-xlarge: 100% - $content-width-xlarge;
+
+// Image variables
+$image-padding-small: $content-width-small;
+$image-padding-medium: $content-width-medium;
+$image-padding-large: $content-width-large;
+$image-padding-xlarge: $content-width-xlarge;
+
+// Common behaviour styles for image
+// Scales image correctly
+%media_image-behaviour {
+    display: none;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+        top: 0;
+    width: auto;
+    @include align(vertical);
+
+    @include respond-to('small') {
+        display: block;
+    }
+
+    @include respond-to('medium') {
+        height: 100%;
+    }
+
+    @include respond-to('large') {
+        height: 100%;
+    }
+    @include respond-to('xx-large') {
+        height: auto;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    //  LOL þetta er eitthvað broken crap. myndin squishar saman í breidd þegar hittir á þetta breakpoint
+    @include respond-to('mega') {
+        height: auto;
+        min-height: 100%;
+        width: 100%;
+    }
+}
+
+// Common behaviour styles for text container
+%media-content-behaviour {
+    padding: 100px $content-padding;
+    width: 100%;
+
+    @include respond-to('small') {
+        width: $content-width-small;
+    }
+
+    @include respond-to('medium') {
+        width: $content-width-medium;
+    }
+
+    @include respond-to('large') {
+        width: $content-width-large;
+    }
+
+    @include respond-to('x-large') {
+        width: $content-width-xlarge;
+    }
+}
+
+// Media block styles
+.media-block {
+    background-color: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+
+    //  Block content header
+    .block__header {
+        text-align: left;
+    }
+
+    /**
+     * Default styles
+     */
+    .block__image {
+        @extend %media_image-behaviour;
+
+        @include respond-to('small') {
+            right: $image-padding-small;
+        }
+
+        @include respond-to('medium') {
+            right: $image-padding-medium;
+        }
+
+        @include respond-to('large') {
+            right: $image-padding-large;
+        }
+
+        @include respond-to('x-large') {
+            right: $image-padding-xlarge;
+        }
+    }
+
+    .block__content {
+        @extend %media-content-behaviour;
+        float: left;
+
+        @include respond-to('small') {
+            margin-left: $content-padding-small;
+        }
+
+        @include respond-to('medium') {
+            margin-left: $content-padding-medium;
+        }
+
+        @include respond-to('large') {
+            margin-left: $content-padding-large;
+        }
+
+        @include respond-to('x-large') {
+            margin-left: $content-padding-xlarge;
+        }
+    }
+
+    /**
+     * Alternative styles
+     */
+    .block__image--alternative {
+        @extend %media_image-behaviour;
+
+        @include respond-to('small') {
+            left: $image-padding-small;
+        }
+
+        @include respond-to('medium') {
+            left: $image-padding-medium;
+        }
+
+        @include respond-to('large') {
+            left: $image-padding-large;
+        }
+
+        @include respond-to('x-large') {
+            left: $image-padding-xlarge;
+        }
+    }
+
+    .block__content--alternative {
+        @extend %media-content-behaviour;
+        float: right;
+
+        @include respond-to('small') {
+            margin-right: $content-padding-small;
+        }
+
+        @include respond-to('medium') {
+            margin-right: $content-padding-medium;
+        }
+
+        @include respond-to('large') {
+            margin-right: $content-padding-large;
+        }
+
+        @include respond-to('x-large') {
+            margin-right: $content-padding-xlarge;
+        }
+    }
+
+
+}

@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// Layout
+// This is for layout only
+// -----------------------------------------------------------------------------
+
+body {
+    margin: 0;
+    overflow-y: scroll;
+
+    // Disallow scroll on these class names
+    &.nav-is-open,
+    &.no-scroll {
+        @extend %no-scroll;
+    }
+
+    .persistent-scroll {
+        @extend %persistent-scroll;
+    }
+}

@@ -1,0 +1,265 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+
+// Legal text mixin
+@mixin legaltext($color: false, $position: false) {
+    @if ($color == false) {
+        $color: #fff;
+    }
+
+    @if ($position == false) {
+        $position: absolute;
+    }
+
+    color: $color;
+    font-size: 12px;
+    line-height: 1.1;
+    opacity: 0.8;
+    padding: 10px;
+    position: $position;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+    text-align: center;
+    transition: all $ani-fast $bezier1;
+    width: 100%;
+
+    @include respond-to('large') {
+        text-align: left;
+        font-size: 1.5vmin;
+    }
+
+    a {
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+            color: $color;
+            text-decoration: underline;
+        }
+    }
+
+    &:hover {
+        // font-size: 1.8vmin;
+        opacity: 1;
+    }
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/// Responsive manager
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+/// @link http://sass-guidelin.es/#breakpoint-manager Sass Guidelines - Breakpoint Manager
+@mixin respond-to($breakpoint) {
+  $query: map-get($breakpoints, $breakpoint);
+
+  @if not $query {
+    @error 'No value found for `#{$breakpoint}`. Please make sure it is defined in `$breakpoints` map.';
+  }
+
+  @media #{if(type-of($query) == 'string', unquote($query), inspect($query))} {
+    @content;
+  }
+}
+
+// Background opacity fallback mixin
+@mixin bg-opacity($color, $opacity:0.9) {
+    background: $color;
+    background: rgba($color, $opacity)
+}
+
+// Brand links
+@mixin brand-link {
+    color: $brand-color;
+    position: relative;
+    text-decoration: none;
+
+  @include on-event {
+    color: lighten($brand-color, 20%);
+    text-decoration: underline;
+  }
+}
+
+
+// Animation
+@mixin animation-props ($speed:0.9s, $delay:0.3s) {
+    // @extend %gpu;
+    animation-duration: $speed;
+    animation-fill-mode: both;
+    animation-delay: $delay;
+}
+
+// Mixin to create a circular div, and a border with offset
+@mixin circle-with-border($dimension: 200px, $color: #444, $border: 5px, $offset: 10px) {
+    border-radius: 50%;
+    height: $dimension;
+    position: relative;
+    width: $dimension;
+
+    &::after {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        width: $dimension + ($offset*2);
+        height: $dimension + ($offset*2);
+        border: solid $border $color;
+        position: absolute;
+            top: -$offset;
+            left: -$offset;
+    }
+}
+
+// Keep aspect ratio
+// Example @include aspect-ration(1,1); makes the box square
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+
+// Navigation icon
+@mixin navigation-icon () {
+    position: relative;
+    width: 40px;
+    height: 37px;
+
+    .bar1,
+    .bar2,
+    .bar3 {
+        background: #fff;
+        width: 29px;
+        height: 3px;
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        transform-origin: 0 50% 0;
+        transition: all $ani-fast;
+
+        .alternative & {
+            background: $text-color;
+        }
+
+        .main-nav-open & {
+            background: $text-color-diff;
+        }
+    }
+
+    .bar2 {
+        top: 16px
+    }
+
+    .bar3 {
+        top: 26px;
+    }
+
+    .main-nav-open & {
+        .bar1 {
+            transform: rotate(45deg);
+        }
+        .bar2 {
+            width: 0;
+            opacity: 0;
+        }
+        .bar3 {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+// Close icon mixin
+@mixin close-icon () {
+
+    $size: 30px;
+    $padding: 10px;
+
+    background: $section-color-bg;
+    cursor: pointer;
+    display: block;
+    height: $size*1.5;
+    padding: $padding*1.1 $padding*1.4;
+    position: absolute;
+    width: $size*1.5;
+
+    &:before {
+        color: lighten($text-color, 20%);
+        content: "\00d7";
+        display: block;
+        font-family: helvetica;
+        font-size: $size;
+        font-weight: lighter;
+        line-height: 0.6;
+        text-align: center;
+    }
+
+    @include respond-to('medium') {
+
+        height: $size*2.5;
+        padding: $padding*1.5 $padding*2.4;
+        position: absolute;
+        width: $size*3;
+
+        &:before {
+            font-size: $size*2;
+        }
+    }
+}
+
+
+// Minial select
+@mixin minimal-select() {
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &::-ms-expand {
+        display: none;
+    }
+}

@@ -1,0 +1,54 @@
+//
+// TEXT BLOCK
+// - One column (implicit)
+// - Two columns
+// - Three columns
+//
+
+.text-block {
+    padding: $block-spacing/2 0;
+    overflow: hidden;
+
+    &--two-columns,
+    &--three-columns {
+        @extend .text-block;
+    }
+
+    @include respond-to('medium') {
+        padding: $block-spacing 0;
+    }
+}
+
+.text-block__header {}
+
+.text-block__content {
+
+    @extend %text;
+
+    // @include respond-to('medium') {
+    //     // text-align: center;
+    // }
+
+    // Two column text block
+    .text-block--two-columns & {
+        @include respond-to('medium') {
+            column-count: 2;
+            column-gap: 40px;
+        }
+    }
+
+    // Three column text block
+    .text-block--three-columns & {
+        column-gap: $grid-padding-large;
+        text-align: left;
+
+        @include respond-to('medium') {
+            column-count: 2;
+        }
+
+        @include respond-to('x-large') {
+            column-count: 3;
+            column-gap: $grid-padding;
+        }
+    }
+}

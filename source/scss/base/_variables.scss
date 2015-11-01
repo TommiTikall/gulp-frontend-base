@@ -1,0 +1,224 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$development: true; // show/hide development stuff
+
+// Grid stuff
+// -----------------------------------------------------------------------------
+/// Container's maximum width
+/// @type Length
+$max-width: 1200px !default;
+$grid-padding: 20px;
+$grid-padding-large: 30px;
+$grid-row-bg: blue;
+$grid-column-bg: #e50050;
+
+/// Brand font
+/// @type list
+$brand-font-stack: 'Roboto Slab', 'Georgia', serif !default;
+
+/// Quote font
+/// @type List
+$quote-font-stack: 'Arvo', 'Georgia', serif !default;
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+
+/// Fonts variables
+$brand-font: $brand-font-stack;
+$display-font: $brand-font;
+$header-font: $brand-font;
+$text-font: $text-font-stack;
+
+// $neutral-font: 'Open Sans', sans-serif;
+// $header-font: 'Raleway', sans-serif;
+// $neutral-font: 'Montserrat', sans-serif;
+// $text-font: 'Georgia', serif;
+// $text-font: 'Lora', 'Georgia', serif;
+
+
+
+/// Opacity
+$opacity-minimum: 0.9;
+$opacity-medium: 0.5;
+$opacity-maximum: 0.3;
+
+
+/// ==============================================
+/// Brand colors
+/// @type Color
+/// ==============================================
+$brand-color-primary: #268aac; // #D8DB00;
+$brand-color-secondary: #427c9a;
+
+
+/// ==============================================
+/// Beer colors
+/// @type Color
+/// ==============================================
+
+// Lager (pilsner)
+$lager-color-primary: #268AAC;
+$lager-color-secondary: #427C9A;
+$lager-color-border: #CE9F19;
+$lager-color-text: #fff;
+
+// Blonde Ale
+$blonde-color-primary: #FDC713;
+$blonde-color-secondary: #F9B700;
+$blonde-color-border: #F0A02A;
+$blonde-color-text: #4E2A1D;
+
+// Weissbier (hvete brygg)
+$weissbier-color-primary: #EBD998;
+$weissbier-color-secondary: #EDD383;
+$weissbier-color-border: #CE9F19;
+$weissbier-color-text: #875231;
+
+// Xmas (jule brygg 4,7)
+$xmas1-color-primary: #CA1D1C;
+$xmas1-color-secondary: #AA1B1B;
+$xmas1-color-border: #D39D25;
+$xmas1-color-text: #fff;
+
+// Xmas (jule brygg 7,0)
+$xmas2-color-primary: #A12A2D;
+$xmas2-color-secondary: #852D2E;
+$xmas2-color-border: #D39D25;
+$xmas2-color-text: #fff;
+
+// Amber Ale
+$amber-color-primary: #F08300;
+$amber-color-secondary: #EE7203;
+$amber-color-border: #F9B036;
+$amber-color-text: #fff;
+
+// Møysalen
+$moysalen-color-primary: #54AC5F;
+$moysalen-color-secondary: #479653;
+$moysalen-color-border: #97CD78;
+$moysalen-color-text: #fff;
+
+/// ==============================================
+/// Layout colors
+/// @type Color
+/// ==============================================
+
+$body-bg: #f3f6fa;
+$page-header-bg: #fff;
+$section-color-bg: #fff;
+$section-color-text: #242424;
+$overlay-bg: #242424;
+$block-spacing: 60px;
+
+
+
+/// ==============================================
+/// Content colors
+/// @type Color
+/// ==============================================
+
+/// Header color
+/// @type Color
+$header-color                 : #404040 !default;
+$header-color-diff            : #fff !default;
+
+/// Copy text color
+/// @type Color
+$text-color                 : #404040 !default;
+$text-color-diff            : #fff !default;
+
+/// Main brand color
+/// @type Color
+$brand-color: #E50050 !default;
+
+/// Light grey
+/// @type Color
+$light-grey: #ededed !default;
+
+/// Medium grey
+/// @type Color
+$mid-grey: #999 !default;
+
+/// Dark grey
+/// @type Color
+$dark-grey: #444 !default;
+
+// Forms
+$form-input-border          : $mid-grey;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;
+
+
+// Colors
+// $color-text               : #777;
+// $color-display            : #333;
+// $color-code               : #00a2ff;
+// $color-selection          : #FD0;
+// $color-selection-bg       : #1BB2E0;
+
+// $color-border             : #aaa;
+
+// $color-link               : #303030;
+// $color-link-hover         : lighten($color-link, 15%);
+
+// // Form colors
+// $color-border             : #ccc;
+// $color-border-dark        : #333;
+// $color-valid              : #48b62e;
+// $color-error              : #b62e2e;
+// $color-warning            : #fab71c; // #ffbb2a;
+// $color-info               : #0065d6;
+
+// // Theme colors
+// $theme-color-primary      : #fff;
+// $theme-color-secondary    : #f6f9fb;
+// $theme-color-tertiary     : #ffb347;
+// $theme-color-quaternary   : #e3e6e8;
+// $theme-color-quinquennial : #888;
+
+// $color-palette-1: #00a1cb;
+// $color-palette-2: #0096ff;
+
+
+
+// /// Navigation
+// /// @type Layout
+$sidebar-width: 400px;
+$sidebar-position: 100%;
+$sidebar-bg: #242424;
+
+
+
+// Layout specific variables
+// =============================================================================
+
+$page-header-small: 80px;
+$page-header-large: 100px;
+// $page-header-padding: 25px;
+
+// Animation variables
+// =============================================================================
+
+// Animation easings
+$bezier1: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$bezier2: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$elastic1: cubic-bezier(1.000, 0.000, 0.675, 1.650);
+
+// Animations speeds
+$ani-super-fast: 0.1s;
+$ani-fast: 0.3s;
+$ani-medium: 0.6s;
+$ani-slow: 0.9s;

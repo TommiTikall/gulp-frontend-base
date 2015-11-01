@@ -1,0 +1,64 @@
+
+/// ======================================
+/// Grid stuff
+/// ======================================
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+/// @see {mixin} respond-to
+$breakpoints: (
+    'xx-small': (min-width: 320px),
+    'x-small': (min-width: 480px),
+    'small': (min-width: 568px),
+    'medium': (min-width: 768px),
+    'large': (min-width: 1020px),
+    'x-large': (min-width: 1200px),
+    'xx-large': (min-width: 1440px),
+    'xxx-large': (min-width: 1640px),
+    'mega': (min-width: 2000px)
+) !default;
+
+
+/// Grid container placeholder.
+/// Creates the centered conatiner.
+/// Can be extended on any element
+%grid-container {
+    // Incude jeet center mixin first, so we can override the 0 padding
+    @include center($max-width);
+
+    // Mobile first, big padding in sides to make it easier on the eyes
+    // padding-left: $grid-padding-large;
+    // padding-right: $grid-padding-large;
+    padding-left: $grid-padding;
+    padding-right: $grid-padding;
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    @extend .clearfix;
+
+    // Smaller padding on bigger screens
+    @include respond-to('x-large') {
+        // Redefine grid-padding
+        $grid-padding: 20px;
+
+        // padding-left: $grid-padding;
+        // padding-right: $grid-padding;
+    }
+}
+
+.grid-container {
+    @extend %grid-container;
+
+    .show-grid & {
+        @if $development == true {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background: rgba($grid-row-bg, 0.2);
+            & * {
+                background: rgba($grid-column-bg, 0.5);
+            }
+        }
+    }
+}

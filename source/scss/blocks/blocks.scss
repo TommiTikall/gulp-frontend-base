@@ -1,0 +1,42 @@
+// Genaral block styling
+.block {
+
+    // Default
+    background-color: $section-color-bg;
+    color: $section-color-text;
+
+    // Svg polygon
+    .block__svg-angle {
+        fill: $section-color-bg;
+        height: 30px;
+        height: 3vw;
+        margin-bottom: -2px;
+        position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+        width: 100%;
+    }
+}
+
+.block-header {
+    @extend %block-header;
+
+    // Primary look with small bottom border
+    &--primary {
+        @extend %block-header;
+
+        &:after {
+            border: solid 1px $text-color;
+            border-width: 0 0 1px;
+            content: "";
+            display: block;
+            margin: 20px 0;
+            width: 100px;
+
+            @include respond-to('medium') {
+                margin: 20px auto 0;
+            }
+        }
+    }
+}

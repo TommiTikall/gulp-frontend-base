@@ -1,0 +1,154 @@
+//
+// INTRO BLOCK
+//
+
+$intro-header-color: #fff;
+$intro-header-size: $normal-header !default;
+
+// Default
+.intro-block {
+    height: 100vh;
+    max-height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .grid-container {
+        height: 100%;
+        position: relative;
+
+        @include respond-to('medium') {
+            max-height: 1000px;
+            padding-left: $grid-padding;
+            padding-right: $grid-padding;
+        }
+    }
+}
+
+    .intro-block__video {
+        @extend %fixed-video;
+    }
+
+    .intro-block__image {
+        @extend %fixed-image;
+    }
+
+
+.intro-block__header {
+    @include align(both);
+    color: $intro-header-color;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+
+    @include respond-to('x-large') {
+        margin-top: -$display-header/2;
+        // position: fixed; // Override the absolute position of the align() mixin
+    }
+}
+
+    .intro-logo {
+        display: none;
+        margin: 0 auto;
+        max-width: 40vw;
+
+        @include respond-to('small') {
+            max-width: 30vw;
+        }
+
+        @include respond-to('medium') {
+            display: block;
+            height: auto;
+            max-width: 20vw;
+            visibility: visible;
+        }
+
+        @include respond-to('x-large') {
+            height: auto;
+            max-width: 15vw;
+        }
+
+        @include respond-to('xx-large') {
+            max-width: 10vw;
+        }
+
+        @include respond-to('xxx-large') {
+            max-width: 10vw;
+        }
+    }
+
+    .intro-block__statement {
+        @extend %gpu;
+        display: block;
+        font-family: $display-font;
+        font-size: 13vmin;
+        font-weight: 700;
+        line-height: 1;
+        margin: 7vh 0 10vh;
+        width: 100%;
+
+
+        @include respond-to('small') {
+            font-size: 10vmin;
+        }
+
+        @include respond-to('medium') {
+            font-size: 10vh;
+        }
+
+        @include respond-to('large') {
+            font-size: 9vw;
+        }
+
+        @include respond-to('x-large') {
+            font-size: 6vw;
+            padding-left: 2vw;
+            padding-right: 2vw;
+        }
+    }
+
+        .statement-fragment {
+            position: relative;
+
+            &.first {
+                display: block;
+            }
+            &.second {
+                display: inline-block;
+            }
+            &.third {
+                display: inline-block;
+            }
+            &.fourth {
+                display: block;
+            }
+
+            @include respond-to('x-large') {
+                &.first {
+                    display: inline;
+                }
+                &.second {
+                    display: inline;
+                }
+                &.third {
+                    display: inline;
+                }
+                &.fourth {
+                    display: inline;
+                }
+            }
+        }
+
+        // Intro block animation in base/animations.scss
+
+        .intro-button {
+            font-size: 4vw;
+            display: block;
+            margin-bottom: 2vh;
+
+            @include respond-to('x-small') {
+                display: inline-block;
+                font-size: 2vh;
+            }
+        }

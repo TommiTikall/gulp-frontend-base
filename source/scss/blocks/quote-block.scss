@@ -1,0 +1,58 @@
+//
+// QUOTE BLOCK
+//
+
+$quote-padding: 60px;
+
+.quote-block {
+    background: #ddd; // $brand-color-secondary; // #ffed53; //#00c9fc;
+    padding: 120px 0;
+    overflow: hidden;
+}
+
+.quote-block__content {
+    color: $text-color;
+    font-family: $quote-font-stack;
+    font-size: 150%;
+    font-style: italic;
+    line-height: 1.3;
+    margin: 0;
+    position: relative;
+
+    &:before {
+        content: "\0201d";
+        display: block;
+        font-family: $text-font-stack;
+        font-size: 400%;
+        line-height: 0.5;
+        text-align: center;
+    }
+
+    @include respond-to('small') {
+        padding-left: 70px;
+
+        &:before {
+            content: "\0201d";
+            display: block;
+            font-family: $text-font-stack;
+            font-size: 400%;
+            line-height: 0.85;
+            position: absolute;
+                left: 0;
+                top: 0;
+        }
+    }
+
+
+    @include respond-to('medium') {
+        margin: 0 auto;
+        max-width: 900px;
+        padding-left: 105px;
+        padding-right: 50px;
+
+        &:before {
+            font-size: 700%;
+            line-height: 0.8;
+        }
+    }
+}

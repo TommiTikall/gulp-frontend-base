@@ -1,0 +1,59 @@
+@charset 'UTF-8';
+//
+// 1. Vendors
+@import
+    'vendor/normalize',
+    'vendor/jeet/index',
+    'vendor/animate';
+
+//
+// 2. Configuration and helpers
+@import
+    'utils/functions',
+    'utils/mixins';
+
+//
+// 3. Base stuff
+@import
+    'base/variables',
+    'base/fonts',
+    'base/typography',
+    'base/grid',
+    'base/base',
+    'base/article',
+    'base/animation',
+    'base/helpers',
+    'utils/placeholders',
+    'base/icons';
+
+//
+// 4. Layout-related sections
+@import
+    'layout/layout',
+    'layout/page-header',
+    'layout/page-content',
+    'layout/page-footer';
+
+//
+// 5. Components
+@import
+    'components/overlay',
+    'components/main-navigation',
+    'components/buttons',
+    'components/forms';
+
+//
+// 6. Blocks
+@import
+    'blocks/blocks',
+    'blocks/intro-block',
+    'blocks/text-block',
+    'blocks/quote-block',
+    'blocks/media-block',
+    'blocks/video-block',
+    'blocks/image-block';
+
+//
+// 7. Themes
+// @import
+//     'themes/default';

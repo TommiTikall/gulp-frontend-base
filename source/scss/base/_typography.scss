@@ -1,0 +1,40 @@
+/**
+ * Basic typography style for copy text
+ */
+
+// Headers
+$normal-header: 30px;
+$large-header: 40px;
+$xlarge-header: 50px;
+$xxlarge-header: 70px;
+$display-header: 90px;
+
+// Line height
+$header-line-height: 1.1;
+
+
+body {
+    color: $text-color;
+    font: normal 100% / 1.8 $text-font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    line-height: 1.8;
+
+    @extend %text-optimize;
+}
+
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 22px;
+}
+
+p {
+    @extend %text;
+}

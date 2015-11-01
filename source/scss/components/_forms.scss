@@ -1,0 +1,40 @@
+
+.form {
+    @include respond-to('medium') {
+        @include col(1/2);
+        @include align(horizontal);
+    }
+}
+
+.form-row {
+    padding: 10px 0 5px;
+}
+
+.form-row-label {
+    display: block;
+    margin: 0 0 5px;
+}
+
+
+
+[type="text"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="password"],
+[type="checkbox"] {
+    border: solid 1px $form-input-border;
+    border-width: 1px 1px 3px;
+    font-size: 14px;
+    height: 50px;
+    line-height: 100%;
+    padding: 0 10px;
+    width: 100%;
+}
+
+
+[type=range] {
+    display: block;
+    height: 50px;
+    width: 100%;
+}

@@ -1,0 +1,94 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+@if $development == true {
+    body {
+        // Grid breakpoints
+        &:after {
+            background: rgba(#000, 0.6);
+            color: $text-color-diff;
+            content: "implicit";
+            display: block;
+            font-size: 14px;
+            padding: 5px 10px;
+            position: fixed;
+              right: 5px;
+              bottom: 5px;
+              z-index: 9000;
+
+            @include respond-to('xx-small') { content: "xx-small | 320 px"; }
+            @include respond-to('x-small') { content: "x-small | 480 px"; }
+            @include respond-to('small') { content: "small | 568 px"; }
+            @include respond-to('medium') { content: "medium | 768 px"; }
+            @include respond-to('large') { content: "large | 1020 px"; }
+            @include respond-to('x-large') { content: "x-large | 1200 px"; }
+            @include respond-to('xx-large') { content: "xx-large | 1440 px"; }
+            @include respond-to('xxx-large') { content: "xxx-large | 1600 px"; }
+            @include respond-to('mega') { content: "mega | 2000 px"; }
+        }
+    }
+}
+
+// Grid toggle
+.grid-toggle {
+    background: rgba(#000, 0.6);
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    padding: 7px 9px 9px 8px;
+    position: fixed;
+        left: 5px;
+        bottom: 5px;
+        z-index: 9000;
+
+    .show-grid & {
+        background: rgba($grid-row-bg, 0.3);
+        color: rgba($grid-column-bg, 0.7);
+    }
+
+    // @if $development == true {
+    //     display: block;
+    // }
+}
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0; /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

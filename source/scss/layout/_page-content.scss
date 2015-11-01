@@ -1,0 +1,23 @@
+// Spacing for top header
+main {
+    margin-top: 88px;
+}
+
+// Sections
+.page-section {
+    background-color: #fff;
+    position: relative;
+    width: 100%;
+
+    &--full-width {
+        .grid-container { max-width: 100% }
+    }
+
+    &--nobg {
+        background-color: transparent;
+    }
+}
+
+.page-section--solid {
+    @extend .page-section;
+}

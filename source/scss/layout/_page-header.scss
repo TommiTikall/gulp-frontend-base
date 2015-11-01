@@ -1,0 +1,289 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.page-header {
+    background: transparent;
+    height: $page-header-small;
+    position: fixed;
+        z-index: 100;
+    width: 100%;
+    transition: all 0.2s;
+    // transform: translateY(-100%);
+
+    .alternative & {
+        background: rgba(#fff, .97);
+        box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
+    }
+
+    .main-nav-open & {
+        box-shadow: none;
+    }
+
+    &.hidden {
+        transform: translateY(-100%);
+    }
+
+    .main-nav-open & {
+        background: transparent;
+    }
+
+    @include respond-to('medium') {
+        height: $page-header-large;
+    }
+}
+
+    //
+    // Slogan
+    //
+    .page-header__slogan {
+        font-size: 30px;
+        display: none;
+        text-align: center;
+        margin: 0;
+        line-height: 100px;
+        color: $text-color-diff;
+        font-family: $brand-font;
+        text-transform: uppercase;
+        opacity: 0;
+        transition: all $ani-fast;
+        visibility: hidden;
+
+        @include respond-to('medium') {
+            display: block;
+
+            .alternative.visible & {
+                color: $text-color;
+                display: block;
+                opacity: 1;
+
+                .main-nav-open & {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    //
+    // Language chooser
+    //
+    .language-chooser {
+        position: absolute;
+            right: 70px;
+            top: 21px;
+        text-align: right;
+        transition: all $ani-fast;
+
+        @include respond-to('medium') {
+            right: 90px;
+            top: 29px;
+        }
+    }
+
+
+    .language-chooser__active {
+        display: block;
+        color: $text-color-diff;
+        cursor: pointer;
+        font-weight: 700;
+        padding: 5px 20px;
+        text-transform: uppercase;
+        transition: all $ani-fast;
+    }
+
+    .language-chooser__list {
+        @extend %minimal-list;
+    }
+
+    .language-chooser__item {
+        @extend %gpu;
+        visibility: hidden;
+
+        .lang-nav-open & {
+            visibility: visible;
+            @extend .fadeInLeftSmall;
+
+            @for $i from 1 to 10 {
+                &:nth-child(#{$i}) {
+                    @include animation-props($ani-fast, ($i * 0.09s) );
+                }
+            }
+        }
+
+        a {
+            @include on-event(true) {
+                color: $text-color-diff;
+                font-weight: 700;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            display: block;
+            padding: 5px 20px;
+            width: 100%;
+        }
+
+        // Animate in
+        // .lang-nav-open & {
+        //     @extend .fadeInLeftSmall;
+        //
+        //     @for $i from 1 to 10 {
+        //         &:nth-child(#{$i}) {
+        //             @include animation-props($ani-fast, ($i * 0.09s) );
+        //         }
+        //     }
+        // }
+    }
+
+
+
+        // Active state
+    //     &.active {
+    //         .language-chooser__list {
+    //             visibility: visible;
+    //             // opacity: 1;
+    //         }
+    //     }
+    // }
+
+    // .lang-nav-open .language-chooser__item {
+    //     @extend .fadeInLeftSmall;
+    //
+    //     @for $i from 1 to 10 {
+    //         &:nth-child(#{$i}) {
+    //             @include animation-props($ani-fast, ($i * 0.09s) );
+    //         }
+    //     }
+    // }
+
+    //
+    // Page header logo
+    //
+    .page-header__logo-wrapper {
+        position: absolute;
+        top: 18px;
+        left: 20px;
+        height: 49px;
+        width: 70px;
+        transition: top $ani-fast;
+
+        @include respond-to('medium') {
+            top: 28px;
+            left: 50px;
+        }
+    }
+
+    .page-header__logo {
+        opacity: 1;
+        transition: opacity $ani-fast $bezier1;
+
+        &.white {
+            display: block;
+
+            .alternative & {
+                display: none;
+            }
+        }
+
+        &.dark {
+            display: none;
+
+            .alternative & {
+                display: block;
+            }
+        }
+
+        .main-nav-open & {
+            opacity: 0;
+        }
+    }
+
+    //
+    // main navigation trigger
+    //
+    .main-nav__trigger {
+        @include navigation-icon();
+        cursor: pointer;
+        position: absolute;
+            right: 20px;
+            top: 22px;
+        transition: all $ani-fast $bezier1;
+
+        @include respond-to('medium') {
+            right: 40px;
+            top: 30px;
+        }
+    }
+
+        .main-nav__text {
+            color: #fff;
+            display: block;
+            float: left;
+            font-weight: 700;
+            margin-right: 5px;
+            opacity: 1;
+            text-transform: uppercase;
+            transition: all $ani-fast $bezier2;
+
+            .alternative & {
+                color: $text-color;
+            }
+
+            .main-nav-open & {
+                // color: $text-color-diff;
+                opacity: 0;
+            }
+        }
+
+        .main-nav__icon {
+            display: block;
+            float: right;
+        }
+
+        //
+        // Main navigation icon
+        //
+        // #main-nav-icon {
+        //     display: block;
+        //     transition: all $ani-fast $bezier2;
+        //
+        //     .bar1,
+        //     .bar2,
+        //     .bar3 {
+        //         position: absolute;
+        //         transition: all $ani-fast $bezier2;
+        //         transform: rotate(0deg);
+        //         transform-origin: 50% 50%;
+        //     }
+        // }
+        //
+        // .alternative #main-nav-icon {
+        //     .bar1,
+        //     .bar2,
+        //     .bar3 {
+        //         fill: $text-color;
+        //     }
+        // }
+        //
+        // .main-nav-open #main-nav-icon {
+        //     transform: rotate(-45deg);
+        //
+        //     .bar1,
+        //     .bar2,
+        //     .bar3 {
+        //         fill: $text-color-diff;
+        //     }
+        //
+        // }
+        //
+        // #main-nav-icon.open {
+        //     .bar1 {
+        //         transform: translateY(12px);
+        //     }
+        //     .bar3 {
+        //         transform: rotate(-90deg) translate(12px, 0);
+        //     }
+        //     .bar2 {
+        //         opacity: 0;
+        //         width: 0;
+        //     }
+        // }

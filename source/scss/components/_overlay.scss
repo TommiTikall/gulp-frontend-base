@@ -1,0 +1,79 @@
+//
+// Overlay
+//
+
+.global-overlay {
+    height: 0;
+    visibility: hidden;
+    position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2000;
+    width: 0;
+
+    &.visible {
+        visibility: visible;
+    }
+}
+
+.overlay__inner {
+    background-color: #fff;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+
+    .active & {
+        padding: 40px 20px;
+    }
+
+    @include respond-to('large') {
+        .active & {
+            padding: 100px;
+        }
+    }
+}
+
+.overlay__close {
+    // border: solid 1px;
+    cursor: pointer;
+    height: 36px;
+    opacity: 0;
+    position: fixed;
+        top: 30px;
+        right: 30px;
+    width: 40px;
+
+    &:before,
+    &:after {
+        background: $text-color;
+        content: '';
+        display: block;
+        height: 3px;
+        width: 30px;
+        position: absolute;
+            left: 4px;
+            top: 16px;
+    }
+
+    &:before {
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.profile-overlay__content {
+    color: $text-color;
+    position: relative;
+
+    opacity: 0;
+    transition: all $ani-medium;
+
+    .active & {
+        opacity: 1;
+    }
+}

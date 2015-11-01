@@ -1,0 +1,137 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.page-footer {
+    background: $section-color-bg;
+    height: 100vh;
+    position: relative;
+
+    @include respond-to('x-large') {
+        overflow: hidden;
+    }
+}
+
+    .footer-bg-image {
+        position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .footer-column {
+        min-height: 50%;
+        position: relative;
+        width: 100%;
+        // overflow: hidden;
+
+        &.left {
+            height: 50%;
+            clear: right;
+
+            @include respond-to('x-large') {
+                height: 100%;
+                @include span(6/9);
+            }
+            @include respond-to('xx-large') {
+                @include span(4/6);
+            }
+        }
+
+        &.right {
+            background: rgba(255,255,255, .8);
+            // color: $text-color-diff;
+            float: left;
+            height: 50%;
+            padding: 50px 20px;
+            @include cf();
+
+            @include respond-to('small') {
+                padding: 50px;
+            }
+
+            @include respond-to('medium') {
+                // height: auto;
+                // min-height: auto;
+                padding: 100px;
+            }
+
+            @include respond-to('x-large') {
+                // background: rgba(0,0,0, .7);
+                height: 100%;
+                @include span(3/9);
+            }
+            @include respond-to('xx-large') {
+                @include span(2/6);
+            }
+        }
+    }
+
+    .footer-map-image {
+        max-height: 120%;
+        min-height: 100%;
+        min-width: 100%;
+        @include align(vertical);
+        // max-height: 100%;
+    }
+
+    .footer-column__header {
+        font-size: 45px;
+        margin: 0;
+    }
+
+    .contact-links {
+        margin: 0 0 30px;
+
+        @include respond-to('medium') {
+            @include col(1/2);
+        }
+
+        @include respond-to('x-large') {
+            width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        .contact-link {
+            display: block;
+            font-size: 20px;
+            padding: 5px 0;
+        }
+        .email {}
+        .phone {}
+    }
+
+
+    // /* Responsive Google maps iframe */
+    // .maps-container {
+    //     position: relative;
+    //     padding-bottom: 56.25%;
+    //     padding-top: 30px;
+    //     height: 0;
+    //     overflow: hidden;
+    //
+    //     iframe,
+    //     object,
+    //     embed {
+    //         height: 0;
+    //         overflow: hidden;
+    //         padding-bottom: 65%;
+    //         padding-top: 30px;
+    //         position: relative;
+    //     }
+    // }
+    //
+    // .maps-container .iframe,
+    // .maps-container .object,
+    // .maps-container .embed {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    // }
