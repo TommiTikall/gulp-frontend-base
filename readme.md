@@ -1,4 +1,4 @@
-# Tomas Frontend Baseline
+# Gulp Frontend Base
 
 This repo is a fork of Joe Richardson's [gulp-starter](https://github.com/dope/gulp-starter), which I have built upon to create something that works for me and the way I like to work with frontend develpment. Big ups to Joe for his inital setup, which got me started on this.
 
