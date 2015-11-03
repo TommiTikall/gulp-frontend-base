@@ -1,40 +1,262 @@
 
+// ========================================================
+// FORMS
+// ========================================================
+
+// Variables
+// ========================================================
+$row-spacing: 20px;
+$input-height: 46px;
+$check-height: 30px;
+
+// Colors
+$border-color               : #1D322C;
+$border-color-focus         : #00a2ff;
+$label-color                : #888;
+
+$color-valid                : #00a2ff;
+
+$input-background           : #f2f2f2;
+$input-color                : #404040;
+$button-background          : #262626;
+$button-color               : #fff;
+
+// Colors
+// $color-text               : #777;
+// $color-display            : #333;
+// $color-code               : #00a2ff;
+// $color-selection          : #FD0;
+// $color-selection-bg       : #1BB2E0;
+//
+// $color-border             : #aaa;
+//
+// $color-link               : #303030;
+// $color-link-hover         : lighten($color-link, 15%);
+//
+// // Form colors
+// $color-border             : #ccc;
+// $color-border-dark        : #333;
+// $color-valid              : #48b62e;
+// $color-error              : #b62e2e;
+// $color-warning            : #fab71c; // #ffbb2a;
+// $color-info               : #0065d6;
+//
+// // Theme colors
+// $theme-color-primary      : #fff;
+// $theme-color-secondary    : #f6f9fb;
+// $theme-color-tertiary     : #ffb347;
+// $theme-color-quaternary   : #e3e6e8;
+// $theme-color-quinquennial : #888;
+//
+// $color-palette-1: #00a1cb;
+// $color-palette-2: #0096ff;
+
+// General styling
+// ========================================================
 .form {
-    @include respond-to('medium') {
-        @include col(1/2);
-        @include align(horizontal);
+    @include cf();
+    padding: 0 0 100px;
+}
+
+// Input rows, wrapper for form elements
+.input-row {
+    margin: 0 0 $row-spacing;
+
+    // @include respond-to('medium') {
+    //     @include col(1/2, $cycle: 2);
+    // }
+}
+
+// Full width row
+.input-row--full {
+    clear: both;
+    width: 100%;
+}
+
+// Child wrap, for complex elements styling
+.input-row__inner {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+// labels
+label,
+.faux-label {
+    color: $label-color;
+    display: block;
+    margin: 0 0 $row-spacing/4;
+
+    &[for] {
+        cursor: pointer;
     }
 }
 
-.form-row {
-    padding: 10px 0 5px;
-}
-
-.form-row-label {
-    display: block;
-    margin: 0 0 5px;
-}
-
-
-
+// Generic reset styling for form elements
 [type="text"],
 [type="email"],
 [type="number"],
 [type="search"],
 [type="password"],
-[type="checkbox"] {
-    border: solid 1px $form-input-border;
-    border-width: 1px 1px 3px;
-    font-size: 14px;
-    height: 50px;
+[type="checkbox"],
+[type="radio"],
+[type="submit"],
+[type="button"],
+[type=file],
+[type=range],
+button {
+    @include appearance;
+    background: none;
+    border: none;
+    position: relative;
+
+    // Firefox
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &:focus {
+        z-index: 2;
+    }
+}
+
+// Input types
+[type="text"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="password"],
+[type=range],
+[type="checkbox"],
+[type="radio"] {
+    // border: solid 1px $border-color;
+    background: $input-background;
+    border: solid 1px $input-background;
+    font-size: 18px;
+    height: $input-height;
     line-height: 100%;
-    padding: 0 10px;
+    outline: none;
+    padding: 0 15px;
     width: 100%;
+
+    &:focus {
+        outline: -webkit-focus-ring-color auto 5px;
+        &-moz-focusring {
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+        // border-color: #aaa;
+        // border-color: $border-color-focus;
+    }
+}
+
+// Checkboxes and radio buttons
+[type="checkbox"],
+[type="radio"] {
+    @extend .icon-checkmark;
+    cursor: pointer;
+    border-width: 1px;
+    height: $check-height;
+    position: absolute;
+        left: 0;
+        top: 0;
+    width: $check-height;
+
+    &:before {
+        color: $color-valid;
+        font-size: $check-height * 0.6;
+        height: $check-height;
+        line-height: $check-height - 2;
+        opacity: 0;
+        position: absolute;
+        text-align: center;
+        transition: opacity $ani-fast;
+        width: $check-height - 2px;
+    }
+
+    &:focus {
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    &:checked:before {
+        opacity: 1;
+    }
+
+    + label {
+        padding-left: $check-height + 20px;
+    }
 }
 
 
-[type=range] {
+// Buttons
+button,
+[type="submit"],
+[type="button"] {
+    background: $button-background;
+    border: solid 1px $button-background;
+    color: $button-color;
+    height: $input-height;
+    line-height: $input-height;
+    text-align: center;
+    padding: 0 40px;
+    text-transform: uppercase;
+
+    &:focus,
+    &:active {
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    &.submit {
+        float: right;
+    }
+}
+
+// File input
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+
+    &:focus + label,
+    &:active + label {
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+}
+.file-label {
+    background: $button-background;
+    border: solid 1px $button-background;
+    color: #fff;
     display: block;
-    height: 50px;
+    height: $input-height;
+    line-height: $input-height;
+    text-align: center;
+    padding: 0 40px;
+}
+
+// Combo groups
+.combo-group {
+    display: table;
     width: 100%;
+
+    // input
+    .combo-input {
+        display: table-cell;
+        float: left;
+        width: 100%;
+    }
+
+    // button wrap
+    .button-wrap {
+        width: 1%;
+        position: relative;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+    // button
+    .combo-button {
+        margin-left: -1px;
+        white-space: nowrap;
+    }
 }

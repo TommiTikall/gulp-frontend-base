@@ -1,37 +1,44 @@
-$icon-size: 20px;
-$icon-size-tiny: $icon-size * 0.5;
-$icon-size-small: $icon-size * 0.75;
-$icon-color-primary: #fff;
-
-.icon {
-    line-height: 1;
-    display: inline-block;
-    height: $icon-size;
-    width: $icon-size;
-    fill: $icon-color-primary;
-
-    &.icon-tiny {
-        width: $icon-size-tiny;
-        height: $icon-size-tiny;
-    }
-
-    &.icon-small {
-        width: $icon-size-small;
-        height: $icon-size-small;
-    }
-
-    &.icon-large {
-        width: $icon-size;
-        height: $icon-size;
-    }
-
-    &.icon-white {
-        fill: #FFF;
-    }
-}
+// $icon-size: 20px;
+// $icon-size-tiny: $icon-size * 0.5;
+// $icon-size-small: $icon-size * 0.75;
+// $icon-color-primary: #fff;
+//
+// .icon {
+//     line-height: 1;
+//     display: inline-block;
+//     height: $icon-size;
+//     width: $icon-size;
+//     fill: $icon-color-primary;
+//
+//     &.icon-tiny {
+//         width: $icon-size-tiny;
+//         height: $icon-size-tiny;
+//     }
+//
+//     &.icon-small {
+//         width: $icon-size-small;
+//         height: $icon-size-small;
+//     }
+//
+//     &.icon-large {
+//         width: $icon-size;
+//         height: $icon-size;
+//     }
+//
+//     &.icon-white {
+//         fill: #FFF;
+//     }
+// }
 
 
 // Icon font classes
+
+.icon-checkmark {
+    @extend %icon-font;
+    &:before {
+        content: "\e90e";
+    }
+}
 .icon-chevron-thin-down {
     @extend %icon-font;
     &:before {

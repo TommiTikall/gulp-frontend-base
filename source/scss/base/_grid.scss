@@ -26,6 +26,7 @@ $breakpoints: (
 %grid-container {
     // Incude jeet center mixin first, so we can override the 0 padding
     @include center($max-width);
+    @include cf;
 
     // Mobile first, big padding in sides to make it easier on the eyes
     // padding-left: $grid-padding-large;
@@ -36,18 +37,15 @@ $breakpoints: (
     width: 100%;
     min-height: 100%;
     height: 100%;
-    @extend .clearfix;
 
     // Smaller padding on bigger screens
     @include respond-to('x-large') {
         // Redefine grid-padding
         $grid-padding: 20px;
-
-        // padding-left: $grid-padding;
-        // padding-right: $grid-padding;
     }
 }
 
+// Grid container
 .grid-container {
     @extend %grid-container;
 
@@ -61,4 +59,14 @@ $breakpoints: (
             }
         }
     }
+}
+
+.grid-container--medium {
+    @extend %grid-container;
+    max-width: 700px;
+}
+
+.grid-container--small {
+    @extend %grid-container;
+    max-width: 500px;
 }

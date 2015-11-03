@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    @@include('document/document-head.html')
+</head>
+<body>
+
+    <div class="grid-container--small">
+
+        <h1>Forms</h1>
+
+        <form class="form" name="form">
+            <div class="input-row">
+                <label>Text</label>
+                <input type="text" required>
+            </div>
+
+            <div class="input-row">
+                <label>E-mail</label>
+                <input type="email">
+            </div>
+
+            <div class="input-row">
+                <label>Number</label>
+                <input type="number">
+            </div>
+
+            <div class="input-row">
+                <label>Password</label>
+                <input type="password" class="password">
+            </div>
+
+            <div class="input-row">
+                <label>Text / button combo</label>
+                <div class="combo-group">
+                    <input type="text" class="combo-input">
+                    <span class="button-wrap">
+                        <input type="button" class="combo-button" value="Apply">
+                    </span>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <span class="faux-label">File upload</span>
+                <input type="file" class="file-input" id="file">
+                <label for="file" class="file-label">Choose a file...</label>
+            </div>
+
+            <div class="input-row">
+                <span class="faux-label">Checkboxes</span>
+                <div class="input-row__inner">
+                    <input type="checkbox" id="checkbox-1" data-validation="required">
+                    <label for="checkbox-1">Option 1</label>
+                </div>
+                <div class="input-row__inner">
+                    <input type="checkbox" id="checkbox-2" data-validation="required">
+                    <label for="checkbox-2">Option 2</label>
+                </div>
+                <div class="input-row__inner">
+                    <input type="checkbox" id="checkbox-3" data-validation="required">
+                    <label for="checkbox-3">Option 3</label>
+                </div>
+            </div>
+
+            <div class="input-row--full">
+                <input type="submit" class="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    @@include('document/document-js.html')
+
+    @@include('partials/devtools.html')
+</body>
+</html>
