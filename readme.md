@@ -9,7 +9,7 @@ This repo is a fork of Joe Richardson's [gulp-starter](https://github.com/dope/g
 `$ gulp` to init project and localhost
 
 
-### Features
+### Features 
 
 - NPM: For gulp and backend
 - Bower
